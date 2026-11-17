@@ -88,13 +88,13 @@ make clean
 ## 결과
 
 - 로그 결과
-  [!로그](./doc/results/log_result_both.png)
+  ![로그](./doc/results/log_result_both.png)
 - 모드 always/random에서 reset 후 레지스터 읽은 값 에러칸 제외 x01CE_B007
-  - [!always](./doc/results/wave_always_reset.png)
-  - [!random](./doc/results/wave_random_reset.png)
+  - ![always](./doc/results/wave_always_reset.png)
+  - ![random](./doc/results/wave_random_reset.png)
 - 전체 쓰기 후 레지스터 읽은 값: 주소 값 <24 한 값으로 출력
-  - [!always](./doc/results/wave_always_after_write.png)
-  - [!random](./doc/results/wave_random_after_write.png)
+  - ![always](./doc/results/wave_always_after_write.png)
+  - ![random](./doc/results/wave_random_after_write.png)
 - 다시 초기화 한 후 읽은 값: 에러 칸 제외x01CE_B007
-  - [!always](./doc/results/wave_always_after_write.png)
-  - [!random](./doc/results/wave_random_after_write.png)
+  - ![always](./doc/results/wave_always_after_write.png)
+  - ![random](./doc/results/wave_random_after_write.png)
