@@ -1,0 +1,1 @@
+../../lib_ip/lfsr_4b/rtl/lfsr_4b.sv
