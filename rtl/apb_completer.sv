@@ -34,7 +34,7 @@ module apb_completer #(
     end
   end
   always_comb begin
-    if (is_access) begin
+    if (is_access & !pwrite) begin
       pre_prdata  = (acc_register == 0) ? 32'h05AD_D00D : regs[acc_register];
       pre_pslverr = (acc_register == 0) ? 1 : 0;
     end else begin
