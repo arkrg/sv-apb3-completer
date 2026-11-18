@@ -4,3 +4,4 @@ package param_pkg;
     ALWAYS
   } rdy_e;
 endpackage
+import param_pkg::*;
