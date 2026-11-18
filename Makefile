@@ -16,9 +16,7 @@ READY_RANDOM := 0
 MODE   ?= ALWAYS
 SNAP   := $(TOP)_$(MODE)_snap
 SIMLOG := $(TOP)_$(MODE).log
-
-SRCS    := $(wildcard pkg/*.sv) $(wildcard lib/*.svh) $(wildcard rtl/*.sv) $(wildcard tb/$(TOP).sv)
-INCDIRS := -i ../lib -i ../tb
+SRCS    :=  $(wildcard pkg/*.sv) $(wildcard ext/*.sv) $(wildcard rtl/*.sv) $(wildcard tb/$(TOP).sv)
 
 .PHONY: all check compile sim run both clean wave
 all: run

@@ -1,8 +1,4 @@
-typedef enum bit {
-  RANDOM,
-  ALWAYS
-} rdy_e;
-
+import param_pkg::*;
 module tb_apb_completer;
   parameter bit READY_MODE = ALWAYS;
   parameter int WIDTH_ADDR = 4;
