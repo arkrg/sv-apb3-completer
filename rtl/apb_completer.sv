@@ -34,14 +34,10 @@ module apb_completer #(
     end
   end
   always_comb begin
-    if (is_access & !pwrite) begin
-      pre_prdata  = (acc_register == 0) ? 32'h05AD_D00D : regs[acc_register];
-      pre_pslverr = (acc_register == 0) ? 1 : 0;
-    end else begin
-      pre_prdata  = 0;
-      pre_pslverr = 0;
-    end
+    if (is_access & !pwrite) pre_prdata = (acc_register == 0) ? 32'h05AD_D00D : regs[acc_register];
+    else pre_prdata = 0;
   end
+  assign pre_pslverr = (is_access & (acc_register == 0)) ? 1 : 0;
 
   resp_control #(
       .SEED(SEED)
