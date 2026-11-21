@@ -22,6 +22,7 @@ module apb_completer #(
 
   wire is_setup = {psel, penable} == 2'b10;
   wire is_access = {psel, penable} == 2'b11;
+  wire is_access = {psel, penable} == 2'b11;
   wire [WIDTH_ADDR-3:0] acc_register = paddr[WIDTH_ADDR-1:2];
 
   logic [WIDTH_DATA-1:0] regs[2**WIDTH_ADDR];
@@ -46,6 +47,7 @@ module apb_completer #(
       .rstn(presetn),
       .is_always(ALWAYS_READY),
       .update_count(is_setup),
+      .eanble(is_access),
       .resp_enable
   );
 
@@ -62,6 +64,7 @@ module resp_control #(
     input  rstn,
     input  is_always,
     input  update_count,
+    input  enable,
     output resp_enable
 );
   logic [3:0] lsfr_out;
@@ -93,6 +96,7 @@ module tick_generator #(
     input rstn,
     input is_always,
     input update_count,
+    input enable,
     input [WIDTH_COUNT-1:0] max_count,
     output tick
 );
@@ -107,6 +111,6 @@ module tick_generator #(
     end
   end
   assign n_count = (c_count == 0) ? 0 : c_count - 1;
-  assign tick = (is_always) ? 1 : (update_count) ? 0 : (c_count == 0);
+  assign tick = (is_always) ? 1 : (enable) ? (c_count == 0) : 0;
 endmodule
 
